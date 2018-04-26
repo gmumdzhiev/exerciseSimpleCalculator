@@ -1,9 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 body{
-  background-color:#8c8c8c;
+  background-color:#e6e6e6;
 
 }
 input{
-  width:500px;
-  height:50px;
-  background:linear-gradient(#f2f2f2,#cccccc)
+  font-family: 'Press Start 2P', cursive;
+  font-size: 45px;
+  width:630px;
+  height:100px;
+  background:linear-gradient(#f2f2f2,#a6a6a6);
+  box-shadow: 6px 4px #cccccc;
+}
+
+div{
+  margin: 60px 0px 0px 80px;
+  width:504px;
+  height: 600px;
+  align:center;
+}
+
+button{
+  background:linear-gradient(#ffffcc,#ccffcc);
+  margin: 3px 10px 3px 10px;
+  width:104px;
+  height:100px;
+  font-size: 40px;
+  box-shadow: 6px 4px #cccccc;
+  border-radius: 50%;
+
 }
