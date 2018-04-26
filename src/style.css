@@ -1,0 +1,9 @@
+body{
+  background-color:#8c8c8c;
+
+}
+input{
+  width:500px;
+  height:50px;
+  background:linear-gradient(#f2f2f2,#cccccc)
+}
