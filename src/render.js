@@ -26,7 +26,7 @@ function render(state) {
     const button = crel('button', '=')
     button.addEventListener('click', function (event) {
       const result = eval(state.input)
-      state.output = result
+      state.output = result.input
     })
     return button
   }
