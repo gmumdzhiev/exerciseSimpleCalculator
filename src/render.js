@@ -26,12 +26,12 @@ function render(state) {
     const button = crel('button', '=')
     button.addEventListener('click', function (event) {
       const result = eval(state.input)
-      state.output = result.input
+      state.input = result
     })
     return button
   }
   function renderButtons() {
-    const buttons = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].map(val => renderButton(val))
+    const buttons = ['7', '8', '9', '6', '4', '5', '1', '2', '3', '0'].map(val => renderButton(val))
     const operations = ['+', '-', '*', '/'].map(val => renderButton(val))
     return crel('div', buttons, operations, renderClearButton(), renderEvalButton())
   }
