@@ -1,6 +1,6 @@
 import crel from 'crel'
 
-export default function render(state) {
+export default function render(state, dispatch) {
   function renderScreen() {
     return crel('input', {
       value: state.input,
@@ -12,18 +12,15 @@ export default function render(state) {
   function renderButton(val) {
     const button = crel('button', val)
     button.addEventListener('click', function () {
-      state.input += val
+      dispatch({ type: 'BUTTON', payload: val })
     })
-
     return button
   }
-
-
   function renderClearButton() {
     const button = crel('button', 'C')
     button.id = 'clear'
     button.addEventListener('click', function () {
-      state.input = ''
+      dispatch({ type: 'CLEAR' })
     })
     return button
   }
@@ -31,8 +28,7 @@ export default function render(state) {
     const button = crel('button', '=')
     button.id = 'result'
     button.addEventListener('click', function () {
-      const result = eval(state.input)
-      state.input = result
+      dispatch({ type: 'EVALUATE' })
     })
     return button
   }
@@ -43,6 +39,7 @@ export default function render(state) {
     return crel('div', buttons, operations, renderClearButton(), renderEvalButton())
 
   }
+
   return crel('div',
     renderScreen(),
     renderOutput(),
