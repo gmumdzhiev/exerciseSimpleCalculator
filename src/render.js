@@ -1,8 +1,6 @@
-import * as crel from 'crel';
-import { createStore } from 'redux';
+import crel from 'crel'
 
-
-function render(state) {
+export default function render(state) {
   function renderScreen() {
     return crel('input', {
       value: state.input,
@@ -13,16 +11,18 @@ function render(state) {
   }
   function renderButton(val) {
     const button = crel('button', val)
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       state.input += val
     })
 
     return button
   }
+
+
   function renderClearButton() {
     const button = crel('button', 'C')
     button.id = 'clear'
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       state.input = ''
     })
     return button
@@ -30,21 +30,14 @@ function render(state) {
   function renderEvalButton() {
     const button = crel('button', '=')
     button.id = 'result'
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       const result = eval(state.input)
       state.input = result
     })
     return button
   }
-  function renderOperations(val) {
-    const button = crel('button', val);
-    button.addEventListener('click', () => {
-      dispatch({ type: 'opr', payload: val });
-    });
-    return button;
-  }
 
-  function renderButtons(numbers) {
+  function renderButtons() {
     const buttons = crel('div', { class: 'numb' }, ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0'].map(val => renderButton(val)))
     const operations = crel('div', { class: 'opr' }, ['+', '-', '*', '/'].map(val => renderButton(val)))
     return crel('div', buttons, operations, renderClearButton(), renderEvalButton())
@@ -56,4 +49,3 @@ function render(state) {
     renderButtons()
   )
 }
-module.exports = render

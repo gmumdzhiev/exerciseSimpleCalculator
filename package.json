@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "crel": "^3.1.0",
+    "eslint-plugin-react": "^7.7.0",
     "redux": "^4.0.0"
   }
 }
