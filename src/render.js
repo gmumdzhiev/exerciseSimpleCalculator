@@ -1,4 +1,7 @@
-const crel = require('crel')
+import * as crel from 'crel';
+import { createStore } from 'redux';
+
+
 function render(state) {
   function renderScreen() {
     return crel('input', {
@@ -33,6 +36,14 @@ function render(state) {
     })
     return button
   }
+  function renderOperations(val) {
+    const button = crel('button', val);
+    button.addEventListener('click', () => {
+      dispatch({ type: 'opr', payload: val });
+    });
+    return button;
+  }
+
   function renderButtons(numbers) {
     const buttons = crel('div', { class: 'numb' }, ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0'].map(val => renderButton(val)))
     const operations = crel('div', { class: 'opr' }, ['+', '-', '*', '/'].map(val => renderButton(val)))
